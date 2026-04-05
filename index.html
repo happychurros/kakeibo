@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家計簿送信フォーム（2025年度）</title>
+    <title>家計簿送信フォーム（2026年度）</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
 
         /* 変数定義：色を一括管理 */
         :root {
-            --primary-color: #fe88ad;
-            --primary-hover: #f67e96;
-            --bg-soft-pink: #fff0f5;
-            --bg-dot: #fbcfdc;
-            --text-main: #3b3336;
-            --text-label: #716267;
-            --input-bg: #fff9fb;
-            --border-color: #ddd;
+            --primary-color: #48c9b0;    /* メイン：ミントグリーン */
+            --primary-hover: #34a891;    /* ホバー：濃いミント */
+            --bg-soft-pink: #e0f7fa;     /* 背景：ごく薄い水色 */
+            --bg-dot: #a2e2eb;           /* ドット：少し濃い水色 */
+            --text-main: #2c3e50;        /* テキスト：ネイビーグレー */
+            --text-label: #546e7a;       /* ラベル：落ち着いたブルーグレー */
+            --input-bg: #f5ffff;         /* 入力欄：透明感のある白水色 */
+            --border-color: #b0e0e6;     /* ボーダー：パウダーブルー */
         }
 
         /* 全体レイアウト */
@@ -45,7 +45,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, #d1f1ff, #ead4ff, #ffdde3);
+            background: linear-gradient(135deg, #d1f1ff, #d4f8f0, #e1fffd);
             background-size: 400% 400%;
             opacity: 0.6;
             z-index: -1;
@@ -63,7 +63,7 @@
             background-color: #ffffff;
             padding: 30px 40px;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 150, 136, 0.1); /* 影に少し青緑をプラス */
             width: 100%;
             max-width: 450px;
             box-sizing: border-box;
@@ -75,7 +75,7 @@
             font-weight: 700;
             margin: 0 0 20px;
             font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+            text-shadow: 2px 2px 4px rgba(0, 150, 136, 0.175); 
         }
 
         label {
@@ -115,14 +115,14 @@
         }
 
         input:focus, select:focus {
-            border-color: #ffb6c1;
+            border-color: #81d4fa;
             outline: none;
-            box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+            box-shadow: 0 0 8px rgba(72, 201, 176, 0.5);
         }
 
         /* セレクトボックスの矢印 */
         select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff9a9e'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2348c9b0'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 24px 24px;
@@ -132,7 +132,7 @@
         /* 送信ボタン */
         input[type="submit"] {
             width: 100%;
-            background-color: #ff9ab3;
+            background-color: #4db6ac;
             color: white;
             font-weight: 700;
             font-size: 1.1em;
@@ -147,7 +147,7 @@
 
         input[type="submit"]:hover {
             background-color: var(--primary-hover);
-            box-shadow: 0 4px 15px rgba(246, 114, 114, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
             transform: translateY(-3px);
         }
 
@@ -164,7 +164,7 @@
 
         .sheet-link-container a .fa-solid {
             font-size: 38px;
-            color: #ff9ab3;
+            color: #4db6ac;
             transition: all 0.3s ease;
         }
 
@@ -240,7 +240,7 @@
     <script>
       // (GitHub用 index.html の script部分)
       // ★ここにGASのデプロイURLを貼り付けてください
-      const GAS_URL = "https://script.google.com/macros/s/AKfycbxNe8XqRs6zL7QRV-YpMi0C78VFMRMDQInmZxl4RmN8a7Oh3P_xJBMTv5U-EtizLjVp/exec"; 
+      const GAS_URL = "https://script.google.com/macros/s/AKfycbwa6dbB6CiTn3_nfUeRP2X-L5ro1r0YJEpgOjPFy0gDoLM2ugCln19_B0kSxVzryzdZ/exec"; 
 
       // 1. 日本時間取得・初期表示の設定（GitHub版にも必要！）
       function getJstDate() {
@@ -274,7 +274,7 @@
           localStorage.setItem('lastPayer', data.payer);
       
           // fetch APIを使って外部からGASへ送信
-          fetch(GAS_URL, {
+          fetch(GAS_URL,  {
               method: "POST",
               body: JSON.stringify(data)
           })
